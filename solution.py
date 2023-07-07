@@ -97,10 +97,10 @@ def handle_paddle_movement(keys, left_paddle: Paddle, right_paddle: Paddle):
         left_paddle.move(up=False)
 
     # AI
-    if ball.y <= left_paddle.y and ball.x <= WIDTH//2:
-        left_paddle.move(True)
-    elif ball.y >= left_paddle.y + left_paddle.height and ball.x <= WIDTH//2:
-        left_paddle.move(False)
+    # if ball.y <= left_paddle.y and ball.x <= WIDTH//2:
+    #     left_paddle.move(True)
+    # elif ball.y >= left_paddle.y + left_paddle.height and ball.x <= WIDTH//2:
+    #     left_paddle.move(False)
 
     if keys[pygame.K_UP] and right_paddle.y - right_paddle.VEL >= 0:
         right_paddle.move(up=True)
@@ -118,9 +118,6 @@ def main():
                           2 - PADDLE_HEIGHT//2, PADDLE_WIDTH, PADDLE_HEIGHT)
 
     ball = Ball(WIDTH//2, HEIGHT//2, BALL_RADIUS)
-
-    left_score = 0
-    right_score = 0
 
     while run:
         clock.tick(FPS)
