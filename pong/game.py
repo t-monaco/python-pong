@@ -1,7 +1,6 @@
 from .paddle import Paddle
 from .ball import Ball
 import pygame
-import random
 pygame.init()
 
 
@@ -46,7 +45,7 @@ class Game:
             if i % 2 == 1:
                 continue
             pygame.draw.rect(self.window, self.WHITE,
-                             (self.window_width//2 - 5), i, 10, self.window_height//20)
+                             (self.window_width//2 - 5, i, 10, self.window_height//20))
 
     def _handle_collision(self):
         """
@@ -77,6 +76,7 @@ class Game:
         reduction_factor = (Paddle.HEIGHT / 2) / self.ball.MAX_VEL
         y_vel = difference_in_y / reduction_factor
         self.ball.y_vel = -1 * y_vel
+        self.ball.x_vel *= -1
 
     def draw(self):
         self.window.fill(self.BLACK)
@@ -87,6 +87,8 @@ class Game:
             paddle.draw(self.window)
 
         self.ball.draw(self.window)
+
+        pygame.display.update()
 
     def move_paddle(self, left=True, up=True):
         """
