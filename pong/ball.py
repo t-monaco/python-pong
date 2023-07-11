@@ -8,11 +8,11 @@ class Ball:
     RADIUS = 7
     COLOR = (210, 169, 254)
 
-    def __init__(self, x, y):
+    def __init__(self, x: int, y: int):
         self.x = self.original_x = x
         self.y = self.original_y = y
 
-        angle = self.__get_random_angle(-30, 30, [0])
+        angle = self._get_random_angle(-30, 30, [0])
         position = 1 if random.random() < 0.5 else -1
 
         self.x_vel = position * abs(math.cos(angle) * self.MAX_VEL)
@@ -36,7 +36,7 @@ class Ball:
         self.x = self.original_x
         self.y = self.original_y
 
-        angle = self.__get_random_angle(-30, 30, [0])
+        angle = self._get_random_angle(-30, 30, [0])
 
         # the -1 is to change the direction, it will got to tha player that just scored.
         self.x_vel = -1 * abs(math.cos(angle) * self.MAX_VEL)

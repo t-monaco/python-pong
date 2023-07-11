@@ -7,7 +7,7 @@ class Paddle:
     HEIGHT = 100
     COLOR = (255, 255, 255)
 
-    def __init__(self, x, y) -> None:
+    def __init__(self, x: int, y: int):
         self.x = self.original_x = x
         self.y = self.original_y = y
 
